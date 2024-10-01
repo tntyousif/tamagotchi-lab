@@ -72,6 +72,14 @@ function runGame() {
 }
 
 render();
+
+function render() {}
+
+function updateStates() {
+    state.boredom += getRandomIncrement();
+    state.hunger += getRandomIncrement();
+    state.sleepiness += getRandomIncrement();
+}
 /*----------------------------- Event Listeners -----------------------------*/
 
 
