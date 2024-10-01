@@ -8,7 +8,8 @@ const state = {
 
 /*---------------------------- Variables (state) ----------------------------*/
 
-
+let timer;
+let gameOver;
 
 /*------------------------ Cached Element References ------------------------*/
 
