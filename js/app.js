@@ -17,9 +17,9 @@
 
 /*-------------------------------- Constants --------------------------------*/
 const state = {
-    boredom: "0",
-    hunger : "0",
-    sleepinss : "0"
+    boredom: 0,
+    hunger : 0,
+    sleepinss : 0,
 };
 
 //st2
@@ -68,19 +68,36 @@ function init() {
 }
 
 function runGame() {
-    console.log('The game is running!');
+   updateStates();
+   cheakGameOver();
+   render();
 }
 
-render();
 
-function render() {}
+function render() {
+    boredomState.textContent = state.boredom;
+    hungerState.textContent = state.hunger;
+    sleepinessState.textContent = state.sleepinss;
+
+    if (gameOver) {
+        timer.clearInterval();
+    }
+    
+}
 
 function updateStates() {
-    state.boredom += getRandomIncrement();
-    state.hunger += getRandomIncrement();
-    state.sleepiness += getRandomIncrement();
+    state.boredom += Math.floor(Math.random()*4);
+    state.hunger += Math.floor(Math.random()*4);
+    state.sleepiness += Math.floor(Math.random()*4);
+}
+
+function cheakGameOver() {
+    if (state.boredom >= 10 || state.hunger >= 10 || state.sleepiness >= 10) {
+        gameOver = true;
+    }
 }
 /*----------------------------- Event Listeners -----------------------------*/
 
-
+render();
+init();
 
