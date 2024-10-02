@@ -22,30 +22,7 @@ const state = {
     sleepinss : 0,
 };
 
-//st2
-const boredomState = document.getElementById('boredom-stat');
-const hungerState = document.getElementById('hunger-stat');
-const sleepinessState = document.getElementById('sleepiness-stat');
 
-console.log(boredomState);
-console.log(hungerState);
-console.log(sleepinessState);
-
-const playButten = document.getElementById('play');
-const feedButten = document.getElementById('feed');
-const sleepButten = document.getElementById('sleep');
-
-console.log(playButten);
-console.log(feedButten);
-console.log(sleepButten);
-
-const gameMessageEl = document.getElementById('message');
-
-console.log(gameMessageEl);
-
-const resetBtnEl = document.getElementById('restart');
-
-console.log(resetBtnEl);
 
 /*---------------------------- Variables (state) ----------------------------*/
 
@@ -54,7 +31,16 @@ let gameOver;
 
 /*------------------------ Cached Element References ------------------------*/
 
+const boredomState = document.getElementById('boredom-stat');
+const hungerState = document.getElementById('hunger-stat');
+const sleepinessState = document.getElementById('sleepiness-stat');
 
+const playButton = document.getElementById('play');
+const feedButton = document.getElementById('feed');
+const sleepButton = document.getElementById('sleep');
+
+const gameMessageEl = document.getElementById('message');
+const resetBtnEl = document.getElementById('restart');
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -63,7 +49,6 @@ function init() {
     console.log('init is called');
     gameOver = false;
     timer = setInterval(runGame, 2000);
-
     render();
 }
 
@@ -96,8 +81,25 @@ function cheakGameOver() {
         gameOver = true;
     }
 }
+
+function playBtnClick () {
+    state.boredom = 0;
+    render();
+}
+
+function feedBtnClick () {
+    state.hanger = 0;
+    render();
+}
+
+function leepBtnClick () {
+    state.sleepinss = 0;
+    render();
+}
 /*----------------------------- Event Listeners -----------------------------*/
 
-render();
 init();
+playButton.addEventListener('click', playBtnClick);
+feedButton.addEventListener('click', feedBtnClick);
+sleepButton.addEventListener('click', sleepBtnClick);
 
