@@ -48,6 +48,12 @@ const resetBtnEl = document.getElementById('restart');
 function init() {
     console.log('init is called');
     gameOver = false;
+    resetBtnEl.classList.add('hidden');
+    gameMessageEl.classList.add('hidden');
+    state.boredom = 0;
+    state.hunger = 0;
+    state.sleepinss = 0;
+
     timer = setInterval(runGame, 2000);
     render();
 }
@@ -73,7 +79,7 @@ function render() {
 function updateStates() {
     state.boredom += Math.floor(Math.random()*4);
     state.hunger += Math.floor(Math.random()*4);
-    state.sleepiness += Math.floor(Math.random()*4);
+    state.sleepinss += Math.floor(Math.random()*4);
 }
 
 function cheakGameOver() {
@@ -88,11 +94,11 @@ function playBtnClick () {
 }
 
 function feedBtnClick () {
-    state.hanger = 0;
+    state.hunger = 0;
     render();
 }
 
-function leepBtnClick () {
+function sleepBtnClick () {
     state.sleepinss = 0;
     render();
 }
@@ -102,4 +108,5 @@ init();
 playButton.addEventListener('click', playBtnClick);
 feedButton.addEventListener('click', feedBtnClick);
 sleepButton.addEventListener('click', sleepBtnClick);
+resetBtnEl.addEventListener('click', init)
 
