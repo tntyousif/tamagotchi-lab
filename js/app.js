@@ -83,7 +83,7 @@ function updateStates() {
 }
 
 function cheakGameOver() {
-    if (state.boredom >= 10 || state.hunger >= 10 || state.sleepiness >= 10) {
+    if (state.boredom >= 10 || state.hunger >= 10 || state.sleepinss >= 10) {
         gameOver = true;
     }
 }
